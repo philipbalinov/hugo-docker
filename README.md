@@ -4,7 +4,7 @@
 
 More about Hugo: http://www.gohugo.io/
 
-Giant Swarm uses Hugo for it's [documentation](https://docs.giantswarm.io/). We provide this image basically to fulfill our own needs, but wlecome contributions and suggestions via [github.com/giantswarm/hugo-docker](https://github.com/giantswarm/hugo-docker).
+Giant Swarm uses Hugo for it's [documentation](https://docs.giantswarm.io/). We provide this image basically to fulfill our own needs, but welcome contributions and suggestions via [github.com/giantswarm/hugo-docker](https://github.com/giantswarm/hugo-docker).
 
 ## Running
 
