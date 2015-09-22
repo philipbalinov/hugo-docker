@@ -18,7 +18,7 @@ To make it really useful, you'll need to mount the current directory to the cont
 
 To make the command a bit more accessible, create an alias. Note that we add the `-p` option here to make hugo's HTTP port 1313 available.
 
-    alias myhugo="docker run --rm -ti -v $(pwd):$(pwd) -w $(pwd) -p 1313:1313 hugo"
+    alias myhugo="docker run --rm -ti -v $(pwd):$(pwd) -w $(pwd) -p 1313:1313 giantswarm/hugo"
 
 Then we can call hugo like this:
 
