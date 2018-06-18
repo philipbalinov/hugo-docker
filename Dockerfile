@@ -1,15 +1,14 @@
-FROM alpine:3.1
+FROM alpine:3.7
 
-ENV HUGO_VERSION 0.14
+ENV HUGO_VERSION 0.42
 
 # Install HUGO
 RUN set -x && \
   apk add --update wget ca-certificates && \
-  wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
-  tar xzf hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
-  rm -r hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
-  mv hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/bin/hugo && \
-  rm -r hugo_${HUGO_VERSION}_linux_amd64 && \
+  wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -O hugo-latest.tar.gz && \
+  tar xzvf hugo-latest.tar.gz hugo && \
+  rm -r hugo-latest.tar.gz && \
+  install hugo /usr/bin/hugo && \
   apk del wget ca-certificates && \
   rm /var/cache/apk/*
 

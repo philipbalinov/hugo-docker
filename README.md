@@ -1,39 +1,22 @@
 # HUGO Website Engine in Docker
 
-**Dockerized version of the HUGO (gohugo.io) executable. Provides a quick way to run the HUGO 0.14 linux executable from a docker image.**
+**Dockerized version of the HUGO (gohugo.io) based on alpine linux**
+
+*This was cloned from [github.com/giantswarm/hugo-docker](https://github.com/giantswarm/hugo-docker).*
 
 More about Hugo: http://www.gohugo.io/
 
-Giant Swarm uses Hugo for it's [documentation](https://docs.giantswarm.io/). We provide this image basically to fulfill our own needs, but welcome contributions and suggestions via [github.com/giantswarm/hugo-docker](https://github.com/giantswarm/hugo-docker).
-
 ## Running
 
-This is a simplistic example of how to call the hugo executable:
+### Help
 
     docker run --rm -ti giantswarm/hugo help
 
-To make it really useful, you'll need to mount the current directory to the container, so hugo can write files:
+### Run hugo in development mode (create a new site in the current dir)
 
-    docker run --rm -ti -v $(pwd):$(pwd) -w $(pwd) giantswarm/hugo new site ./site
+    `docker run --rm -ti -v $(pwd):/site -w /site philipbalinov/hugo new site .`
 
-To make the command a bit more accessible, create an alias. Note that we add the `-p` option here to make hugo's HTTP port 1313 available.
+### Run hugo in development mode
 
-    alias myhugo="docker run --rm -ti -v $(pwd):$(pwd) -w $(pwd) -p 1313:1313 giantswarm/hugo"
-
-Then we can call hugo like this:
-
-    # Creating a new site in folder ./site
-    myhugo new site ./site
-
-    # Serve using hugo's built-in server
-    # (use your currect Docker IP address in the baseUrl)
-    myhugo server --theme=hyde --baseUrl=http://192.168.59.103 --bind=0.0.0.0 -s ./site
-
-    # Generate public files and exit
-    myhugo --theme=hyde --baseUrl=http://192.168.59.103 -s ./site
-
-## Build your own
-
-To build your own image, do this:
-
-    docker build -t giantswarm/hugo .
+    `docker run --rm -ti -v $(pwd):/site -w /site -p 1313:1313 philipbalinov/hugo server --bind=0.0.0.0 -w`
+    # hugo will be accessible on localhost:1313 in your browser
