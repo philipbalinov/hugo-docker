@@ -10,13 +10,13 @@ More about Hugo: http://www.gohugo.io/
 
 ### Help
 
-    docker run --rm -ti giantswarm/hugo help
+    docker run --rm -ti philipbalinov/hugo-docker help
 
 ### Run hugo in development mode (create a new site in the current dir)
 
-    `docker run --rm -ti -v $(pwd):/site -w /site philipbalinov/hugo new site .`
+    `docker run --rm -ti -v $(pwd):/site -w /site philipbalinov/hugo-docker new site .`
 
 ### Run hugo in development mode
 
-    `docker run --rm -ti -v $(pwd):/site -w /site -p 1313:1313 philipbalinov/hugo server --bind=0.0.0.0 -w`
+    `docker run --rm -ti -v $(pwd):/site -w /site -p 1313:1313 philipbalinov/hugo-docker server --bind=0.0.0.0 -w`
     # hugo will be accessible on localhost:1313 in your browser
