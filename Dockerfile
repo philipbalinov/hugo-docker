@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ENV HUGO_VERSION 0.74.3
+ENV HUGO_VERSION 0.56
 
 # Install HUGO
 RUN set -x && \
